@@ -8,10 +8,11 @@ from youtube_transcript_api import YouTubeTranscriptApi as ytapi
 load_dotenv()
 api=os.getenv("api")
 genai.configure(api_key=api)
+st.set_page_config(page_title="Summarize")
 
 def yt_transcript(link):
     transcript=''
-    text=ytapi.get_transcript(link)
+    text=ytapi.get_transcript(link,languages=['hi', 'en'])
     for i in range(len(text)):
         transcript+=(text[i]["text"])+" "
     return transcript
