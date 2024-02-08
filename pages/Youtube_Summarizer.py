@@ -20,7 +20,7 @@ def yt_transcript(link):
 def summarize(transcript):
     
     model=genai.GenerativeModel('gemini-pro')
-    response=model.generate_content(transcript+" summarize this in points")
+    response=model.generate_content(transcript+" summarize this youtube video with a proper title in a detailed manner with points and subheadings if needed")
     return response
 
 st.write("# Paste link of video")

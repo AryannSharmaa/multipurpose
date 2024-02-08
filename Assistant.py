@@ -15,7 +15,7 @@ def picture(pic,text="Give detailed info about this"):
             with st.spinner("processing"):
                 pic=PIL.Image.open(pic)
                 model=genai.GenerativeModel('gemini-pro-vision')
-                response = model.generate_content([text, pic], stream=True)
+                response = model.generate_content([text+" explain in detail and in points", pic], stream=True)
                 response.resolve()
                 st.write(response.text) 
                 
